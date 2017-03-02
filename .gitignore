@@ -1,0 +1,6 @@
+bower_components/
+npm-debug.log
+node_modules/
+test/lcov*
+docs/temp/
+.DS_*

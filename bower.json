@@ -1,0 +1,38 @@
+{
+  "name": "bluebus",
+  "description": "Event Emitter with bind/trigger system",
+  "main": [
+    "dist/bluebus.js"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/*",
+    "!dist/**/*",
+    "!src/**/*",
+    "!CHANGELOG.md",
+    "!README.md",
+    "!bower.json",
+    "!package.json"
+  ],
+  "keywords": [
+    "event",
+    "event bus",
+    "event emitter",
+    "bind",
+    "trigger"
+  ],
+  "authors": [
+    { "name": "Aurelio Merenda", "email": "aurelio.merenda@docomodigital.com" }
+  ],
+  "homepage": "https://github.com/D-Mobilelab/bluebus",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/D-Mobilelab/bluebus.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "private": false
+}
