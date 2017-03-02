@@ -131,4 +131,4 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 
-/* Bluebus temp */
+/* Bluebus 1.0.0 */
