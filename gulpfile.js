@@ -45,12 +45,12 @@ gulp.task('webpack', function(){
     return gulp.src('src/main.js')
     .pipe(webpack({
         output: {
-            filename: 'newton-adapter-2.js',
+            filename: 'bluebus-2.js',
             libraryTarget: 'umd',
-            library: 'NewtonAdapter'
+            library: 'Bluebus'
         }
     }))
-    .pipe(insert.append('\n\n/* Newton Adapter ' + version + ' */'))
+    .pipe(insert.append('\n\n/* Bluebus ' + version + ' */'))
     .pipe(gulp.dest('dist/'));
 });
 
@@ -58,7 +58,7 @@ gulp.task('doc:single', function(){
     gulp.src('src/main.js')
     .pipe(ngdocs.process({
         html5Mode: false,
-        startPage: '/api/NewtonAdapter'
+        startPage: '/api/Bluebus'
     }))
     .pipe(gulp.dest('docs/' + version));
 });
@@ -76,7 +76,7 @@ gulp.task('doc', ['doc:single'], function(){
     }
 });
 
-gulp.task('build:single', ['eslint', 'test', 'doc', 'clean', 'webpack']);
+gulp.task('build:single', ['eslint', 'test:single', 'doc:single', 'clean', 'webpack']);
 
 gulp.task('build', ['build:single'], function(){
     if(argv.watch){
