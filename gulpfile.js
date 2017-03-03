@@ -45,7 +45,7 @@ gulp.task('webpack', function(){
     return gulp.src('src/main.js')
     .pipe(webpack({
         output: {
-            filename: 'bluebus-2.js',
+            filename: 'bluebus.js',
             libraryTarget: 'umd',
             library: 'Bluebus'
         }
