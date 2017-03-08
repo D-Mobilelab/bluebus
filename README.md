@@ -6,27 +6,56 @@
 [![Bower version](https://badge.fury.io/bo/bluebus.svg)](https://badge.fury.io/bo/bluebus)
 [![GitHub version](https://badge.fury.io/gh/D-Mobilelab%2Fbluebus.svg)](https://badge.fury.io/gh/D-Mobilelab%2Fbluebus)
 
+Bluebus is a event library with bind/trigger system
+
 ## Installation
 
 ### NPM
-```
-npm install --save bluebus
-```
-You can found the library ready for production on <i>node_modules/bluebus/dist/bluebus.js</i>
+
+    npm install --save bluebus
+
+You can found the library on <i>node_modules/bluebus/dist/bluebus.js</i>
 
 ### Bower
-```
-bower install --save bluebus
-```
-You can found the library ready for production on <i>bower_components/bluebus/dist/bluebus.js</i>
 
-## Documentation
+    bower install --save bluebus
 
-To read documentation, go to:
+You can found the library on <i>bower_components/bluebus/dist/bluebus.js</i>
 
-[http://d-mobilelab.github.io/bluebus/1.0.0](http://d-mobilelab.github.io/bluebus/1.0.0)
+## Import
 
-Replace <i>1.0.0</i> with the version of the documentation you want to read.
+You can use Bluebus with require
+
+    var Bluebus = require('bluebus');
+
+or as global variable, called <i>Bluebus</i>.
+
+## Usage
+
+    // bind an event
+    Bluebus.bind('openMenu', function(number){
+        console.log('value is ' + number);
+    });
+
+    // trigger an event
+    Bluebus.trigger('openMenu', 5);
+    // it executes previous binding on same event, console will logs 'value is 5'
+
+    // bind an other function on same event
+    Bluebus.bind('openMenu', function(number){
+        console.log('new value is ' + number);
+    });
+    // it is immediately executed because this event has already been triggered
+    // the arguments are those used in the last trigger, so console will logs 'new value is 5'
+
+    // check if an event has been triggered, returns true or false
+    Bluebus.isTriggered('openMenu');
+
+    // clean a previous events and relative bindings
+    Bluebus.clean('openMenu');
+
+    // clean all events and relative bindings
+    Bluebus.cleanAll();
 
 ## Contribute
 
