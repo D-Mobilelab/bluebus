@@ -48,6 +48,20 @@ or as global variable, called <i>Bluebus</i>.
     // it is immediately executed because this event has already been triggered
     // the arguments are those used in the last trigger, so console will logs 'new value is 5'
 
+    //Bind an event
+    Bluebus.bind('multipleEvent', function(number){
+        console.log('multipleEvent is ' + number);
+    });
+
+    //Trigger a multipleEvent 3 times
+    Bluebus.trigger('multipleEvent', 1, true);
+    Bluebus.trigger('multipleEvent', 2, true);
+    Bluebus.trigger('multipleEvent', 3, true);
+    // Passing true as last parameters means mantain the stack of functions of the associated event
+
+    Bluebus.trigger('multipleEvent', 4); //This will not work
+    // You can not fire a multiple event without the true parameter if you have previously fired with true
+
     // check if an event has been triggered, returns true or false
     Bluebus.isTriggered('openMenu');
 
