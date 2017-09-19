@@ -32,6 +32,8 @@ or as global variable, called <i>Bluebus</i>.
 
 ## Usage
 
+### Simple use
+
     // bind an event
     Bluebus.bind('openMenu', function(number){
         console.log('value is ' + number);
@@ -41,29 +43,61 @@ or as global variable, called <i>Bluebus</i>.
     Bluebus.trigger('openMenu', 5);
     // it executes previous binding on same event, console will logs 'value is 5'
 
-    // bind an other function on same event
-    Bluebus.bind('openMenu', function(number){
+### Multiple bind
+
+    // bind an event
+    Bluebus.bind('color', function(number){
+        console.log('yellow is ' + number);
+    });
+
+    // bind same event
+    Bluebus.bind('color', function(number){
+        console.log('red is ' + number);
+    });
+
+    // trigger an event
+    Bluebus.trigger('color', 10);
+    // it executes previous binding functions
+    // console will logs 'yellow is 10' and 'red is 10'
+
+### Before trigger, after bind
+
+    // trigger an event before binding
+    Bluebus.trigger('closeMenu', 15);
+
+    // bind triggered event 
+    Bluebus.bind('closeMenu', function(number){
         console.log('new value is ' + number);
     });
     // it is immediately executed because this event has already been triggered
-    // the arguments are those used in the last trigger, so console will logs 'new value is 5'
+    // console will logs 'new value is 15'
 
-    //Bind an event
+### Multiple trigger
+
+    // bind an event
     Bluebus.bind('multipleEvent', function(number){
         console.log('multipleEvent is ' + number);
     });
 
-    //Trigger a multipleEvent 3 times
+    // trigger an event 2 times, leaving stack
     Bluebus.trigger('multipleEvent', 1, true);
     Bluebus.trigger('multipleEvent', 2, true);
-    Bluebus.trigger('multipleEvent', 3, true);
-    // Passing true as last parameters means mantain the stack of functions of the associated event
+    // Passing true as last parameter, the stack of binding functions is mantained
+    // console will logs 'multipleEvent is 1' and 'multipleEvent is 2'
 
-    Bluebus.trigger('multipleEvent', 4); //This will not work
-    // You can not fire a multiple event without the true parameter if you have previously fired with true
+    Bluebus.trigger('multipleEvent', 3);
+    // If you don't pass true as last parameter, the stack of binding functions is cleaned
+    // console will logs 'multipleEvent is 3'
+
+    Bluebus.trigger('multipleEvent', 4);
+    // nothing is happening, the stack of binding functions is already cleaned
+    
+### isTriggered
 
     // check if an event has been triggered, returns true or false
     Bluebus.isTriggered('openMenu');
+
+### clean and cleanAll
 
     // clean a previous events and relative bindings
     Bluebus.clean('openMenu');

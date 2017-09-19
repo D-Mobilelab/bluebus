@@ -33,11 +33,9 @@ module.exports = {
 
     trigger: function(key, parameters, leaveStack){
         var event = this.events[key];
-        if(event){
-            if(!event.triggered || leaveStack){
-                for(var i = 0; i < event.stack.length; i++){
-                    event.stack[i].call(this, parameters);
-                }
+        if(event && event.stack.length > 0){
+            for(var i = 0; i < event.stack.length; i++){
+                event.stack[i].call(this, parameters);
             }
         }
 
