@@ -3,7 +3,7 @@ module.exports = {
     /*
     events: {
         eventName: {
-            triggered: true/false
+            triggered: true/false,
             parameters: lastTriggeredParameters,
             stack: [
                 bindedFunction1, bindedFunction2 ...
@@ -31,19 +31,18 @@ module.exports = {
         }
     },
 
-    trigger: function(key, parameters){       
+    trigger: function(key, parameters, leaveStack){
         var event = this.events[key];
-        if(event){
-            if(!event.triggered){
-                for(var i = 0; i < event.stack.length; i++){
-                    event.stack[i].call(this, parameters);
-                }
+        if(event && event.stack.length > 0){
+            for(var i = 0; i < event.stack.length; i++){
+                event.stack[i].call(this, parameters);
             }
         }
+
         this.events[key] = {
             triggered: true,
             parameters: parameters,
-            stack: []
+            stack: leaveStack ? this.events[key].stack : []
         };
     },
 
