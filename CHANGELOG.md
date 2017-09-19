@@ -1,3 +1,6 @@
+# 1.3.0
+- Updated node engine version to 6.11.3
+
 # 1.2.0
 - Trigger() get a new parameter leaveStack, if true the stack is maintained, then it's cleaned by default
 
