@@ -89,17 +89,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    trigger: function(key, parameters, leaveStack){
 	        var event = this.events[key];
-	        if(event && event.stack.length > 0){
-	            for(var i = 0; i < event.stack.length; i++){
-	                event.stack[i].call(this, parameters);
+	        if(event){
+	            // call binding methods
+	            if(event.stack.length > 0){
+	                for(var i = 0; i < event.stack.length; i++){
+	                    event.stack[i].call(this, parameters);
+	                }
 	            }
-	        }
 
-	        this.events[key] = {
-	            triggered: true,
-	            parameters: parameters,
-	            stack: leaveStack ? this.events[key].stack : []
-	        };
+	            // change event properties
+	            this.events[key] = {
+	                triggered: true,
+	                parameters: parameters,
+	                stack: leaveStack ? this.events[key].stack : []
+	            };
+	        } else {
+	            // change event properties
+	            this.events[key] = {
+	                triggered: true,
+	                parameters: parameters,
+	                stack: []
+	            };
+	        }
 	    },
 
 	    isTriggered: function(key){
@@ -131,4 +142,4 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 
-/* Bluebus 1.3.0 */
+/* Bluebus 1.3.1 */

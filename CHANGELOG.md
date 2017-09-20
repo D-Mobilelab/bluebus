@@ -1,3 +1,6 @@
+# 1.3.1
+- Bug fix trigger
+
 # 1.3.0
 - Updated node engine version to 6.11.3
 
