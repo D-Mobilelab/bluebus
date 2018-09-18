@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/D-Mobilelab/bluebus/badge.svg?branch=master&v=1)](https://coveralls.io/github/D-Mobilelab/bluebus?branch=master)
 [![npm version](https://badge.fury.io/js/bluebus.svg)](https://badge.fury.io/js/bluebus)
 [![Bower version](https://badge.fury.io/bo/bluebus.svg)](https://badge.fury.io/bo/bluebus)
-[![GitHub version](https://badge.fury.io/gh/D-Mobilelab%2Fbluebus.svg)](https://badge.fury.io/gh/D-Mobilelab%2Fbluebus)
+[![GitHub version](https://badge.fury.io/gh/D-Mobilelab%2Fbluebus.svg)](https://badge.fury.io/gh/D-Mobilelab%2Fbluebus) [![Greenkeeper badge](https://badges.greenkeeper.io/D-Mobilelab/bluebus.svg)](https://greenkeeper.io/)
 
 Bluebus is a event library with bind/trigger system
 
