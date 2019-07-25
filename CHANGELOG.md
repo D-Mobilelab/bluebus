@@ -1,3 +1,6 @@
+# 1.3.2
+- Removed node parameter
+
 # 1.3.1
 - Bug fix trigger
 
